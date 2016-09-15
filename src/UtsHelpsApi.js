@@ -3,7 +3,7 @@ import superagent from 'superagent'
 
 import * as components from './components'
 
-export default class ScoreboardApi {
+export default class UtsHelpsApi {
   /**
    * Sets up default configuration
    *
@@ -217,10 +217,10 @@ export default class ScoreboardApi {
     this._processRequest(uri, {...data, method: 'DELETE'}, callback)
   }
 }
-ScoreboardApi.prototype.endpoints = {}
+UtsHelpsApi.prototype.endpoints = {}
 
 /**
- * Adds a component's endpoints and methods to the ScoreboardApi class.
+ * Adds a component's endpoints and methods to the UtsHelpsApi class.
  *
  * @param obj
  * @param classObj
@@ -240,5 +240,5 @@ function addComponentToClass(obj, classObj) {
 }
 
 Object.keys(components).forEach(c => {
-  addComponentToClass(components[c], ScoreboardApi)
+  addComponentToClass(components[c], UtsHelpsApi)
 })
