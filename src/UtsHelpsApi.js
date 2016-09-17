@@ -12,12 +12,13 @@ export default class ScoreboardApi {
   constructor(options) {
     options = options || {}
     this.options = extend({
-      restBase: 'http://scoreboard.local/api'
+      apiKey: '123456',
+      restBase: 'http://utshelps.ddns.net/api'
     }, options)
     this.onResponseReceived = options.onResponseReceived || this._onResponseReceived
     this.onBeforeRequest = options.onBeforeRequest || this._onBeforeRequest
 
-    this.version = 'v1'
+    this.version = ''
   }
 
   /**
@@ -65,15 +66,11 @@ export default class ScoreboardApi {
 
   /**
    * Gets the request headers for a user.
-   *
-   * @param {object} user - The user object.
    */
-  getRequestHeaders({user}) {
-    if (!user) return {}
+  getRequestHeaders() {
     return {
-      Authorization: `Bearer ${user.company_api_key}`,
-      Token: user.token.token,
-      'User-Hash': user.userHash.user_hash
+      AppKey: `AppKey ${this.apiKey}`,
+      'Content-Type': 'application/json'
     }
   }
 
@@ -107,9 +104,7 @@ export default class ScoreboardApi {
     return {
       url: this._buildEndpoint(uri),
       method,
-      headers: extend({
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }, headers),
+      headers,
       form: typeof form === 'object' ? form : {},
       qs: typeof qs === 'object' ? qs : {},
       withCredentials: false
