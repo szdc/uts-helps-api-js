@@ -1,7 +1,7 @@
-# Scoreboard JavaScript API
+# UTS HELPS JavaScript API
 
 ## Installation
-`npm i --save ssh://git@scm.fishvision.net.au:8082/general-clients/scoreboard-api-js.git`
+`npm i --save ssh://git@github.com:szdc/uts-helps-api-js.git`
 
 ## Making changes
 This repository maintains two branches: **master** (development) and **transpiled** (the transpiled API file(s); no tests).
@@ -19,4 +19,4 @@ This repository maintains two branches: **master** (development) and **transpile
 
 ## Updating Scoreboard front-end
 Scoreboard front-end is configured to pull changes from the **transpiled** branch of this repository.
-To update the front-end repository, run `npm update scoreboard-api-js` from within the Scoreboard Front-End repository (not this repo).
+To update the front-end repository, run `npm update utshelps-api-js` from within the Scoreboard Front-End repository (not this repo).
