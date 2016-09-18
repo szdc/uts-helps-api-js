@@ -69,7 +69,7 @@ export default class UtsHelpsApi {
    */
   getRequestHeaders() {
     return {
-      AppKey: `AppKey ${this.apiKey}`,
+      AppKey: this.options.apiKey,
       'Content-Type': 'application/json'
     }
   }
@@ -87,7 +87,7 @@ export default class UtsHelpsApi {
     if (err || res.success === false) {
       return this.onResponseReceived(err.response, res, callback)
     }
-    this.onResponseReceived(null, res.body.data, callback)
+    this.onResponseReceived(null, res.body, callback)
   }
 
   /**
@@ -140,7 +140,6 @@ export default class UtsHelpsApi {
     let request =
       superagent(data.method, this._buildEndpoint(uri))
         .set(data.headers || this.getRequestHeaders(data))
-
     if (data.query) {
       request.query(data.query)
     }
