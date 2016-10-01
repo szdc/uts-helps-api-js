@@ -15,7 +15,7 @@ describe('Misc', function() {
         } else {
           console.log(res)
         }
-        assert.isNull(err)
+        assert.isNull(err, err.body.MessageDetail)
         assert.isTrue(res.IsSuccess)
         assert.isArray(res.Results)
         done()
