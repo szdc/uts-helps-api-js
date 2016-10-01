@@ -14,7 +14,6 @@ describe('Students', () => {
         assert.isNull(err)
         assert.isTrue(res.IsSuccess)
         assert.isObject(res.Result)
-        console.log(res.Result)
         done()
       })
     })
@@ -23,7 +22,7 @@ describe('Students', () => {
   describe('#registerStudent()', function() {
     this.timeout(7000)
 
-    it('should success if the student was created', done => {
+    it('should return success if the student was created', done => {
       const details = {
         studentId: '11692946',
         dateOfBirth: '6 June 1994',
@@ -34,11 +33,6 @@ describe('Students', () => {
         creatorId: '1'
       }
       api.registerStudent(details, (err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
         assert.isNull(err)
         assert.isTrue(res.IsSuccess)
         done()

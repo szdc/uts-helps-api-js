@@ -13,7 +13,7 @@ export default class UtsHelpsApi {
     options = options || {}
     this.options = extend({
       apiKey: '123456',
-      restBase: 'http://utshelps.ddns.net/api'
+      restBase: 'http://utshelpsapi.azurewebsites.net/api'
     }, options)
     this.onResponseReceived = options.onResponseReceived || this._onResponseReceived
     this.onBeforeRequest = options.onBeforeRequest || this._onBeforeRequest
