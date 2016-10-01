@@ -10,12 +10,7 @@ describe('Misc', function() {
   describe('#listCampuses()', () => {
     it('should return a list of campuses', done => {
       api.getCampuses((err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
-        assert.isNull(err, err.body.MessageDetail)
+        assert.isNull(err)
         assert.isTrue(res.IsSuccess)
         assert.isArray(res.Results)
         done()

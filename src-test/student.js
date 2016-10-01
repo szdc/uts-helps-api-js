@@ -11,7 +11,12 @@ describe('Students', () => {
     it('should return information about a student given an ID', done => {
       const studentId = '11692946'
       api.getStudent(studentId, (err, res) => {
-        assert.isNull(err, err.body.MessageDetail)
+        if (err) {
+          console.log(err)
+        } else {
+          console.log(res)
+        }
+        assert.isNull(err)
         assert.isTrue(res.IsSuccess)
         assert.isObject(res.Result)
         done()
@@ -33,7 +38,7 @@ describe('Students', () => {
         creatorId: '1'
       }
       api.registerStudent(details, (err, res) => {
-        assert.isNull(err, err.body.MessageDetail)
+        assert.isNull(err)
         assert.isTrue(res.IsSuccess)
         done()
       })
