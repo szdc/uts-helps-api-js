@@ -1,8 +1,8 @@
 {
-  "name": "tfnsw-api-js",
+  "name": "uts-helps-api-js",
   "version": "1.0.0",
-  "description": "API wrapper for the TfNSW API",
-  "main": "dist/TfnswApi.js",
+  "description": "API wrapper for the UTS HELPS API",
+  "main": "dist/UtsHelpsApi.js",
   "scripts": {
     "build": "babel src --presets babel-preset-es2015 --out-dir dist --watch",
     "build_test": "babel src-test --presets babel-preset-es2015 --out-dir test --watch",
@@ -10,10 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@scm.fishvision.net.au:8082/general-clients/scoreboard-api-js.git"
+    "url": "ssh://git@github.com:szdc/uts-helps-api-js.git"
   },
   "keywords": [
-    "tfnsw",
+    "uts-helps",
     "api",
     "js",
     "javascript"
