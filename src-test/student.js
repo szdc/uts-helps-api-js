@@ -9,8 +9,10 @@ describe('Students', () => {
     this.timeout(7000)
 
     it('should return information about a student given an ID', done => {
-      const studentId = '11692946'
+      const studentId = '116929461'
       api.getStudent(studentId, (err, res) => {
+        console.log(err)
+        console.log(res)
         assert.isNull(err)
         assert.isTrue(res.IsSuccess, res.DisplayMessage)
         assert.isObject(res.Result)

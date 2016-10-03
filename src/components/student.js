@@ -12,7 +12,7 @@ export default {
 
     registerStudent(details, callback) {
       const keyMap = {
-        studentId: 'StudentId',
+        id: 'StudentId',
         dateOfBirth: 'DateOfBirth',
         gender: 'Gender',
         degree: 'Degree',
