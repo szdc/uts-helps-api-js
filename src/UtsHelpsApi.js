@@ -51,7 +51,7 @@ export default class UtsHelpsApi {
    * @returns {string} A string in the form /v{version_number}/{endpoint}.
    */
   _getURI(uri) {
-    return `/${this.version}${uri}`
+    return uri
   }
 
   /**
