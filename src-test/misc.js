@@ -11,7 +11,7 @@ describe('Misc', function() {
     it('should return a list of campuses', done => {
       api.getCampuses((err, res) => {
         assert.isNull(err)
-        assert.isTrue(res.IsSuccess)
+        assert.isTrue(res.IsSuccess, res.DisplayMessage)
         assert.isArray(res.Results)
         done()
       })
@@ -22,7 +22,7 @@ describe('Misc', function() {
     it('should return a list of lecturers', done => {
       api.getLecturers((err, res) => {
         assert.isNull(err)
-        assert.isTrue(res.IsSuccess)
+        assert.isTrue(res.IsSuccess, res.DisplayMessage)
         assert.isArray(res.Results)
         done()
       })

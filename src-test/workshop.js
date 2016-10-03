@@ -11,7 +11,7 @@ describe('Workshops', function() {
     it('should return a list of active workshops', done => {
       api.getWorkshopSets((err, res) => {
         assert.isNull(err)
-        assert.isTrue(res.IsSuccess)
+        assert.isTrue(res.IsSuccess, res.DisplayMessage)
         assert.isArray(res.Results)
         done()
       })
@@ -21,9 +21,6 @@ describe('Workshops', function() {
   describe('#searchWorkshops()', () => {
     it('should return a list of workshops that match the search parameter', done => {
       api.searchWorkshops({workshopSetId: 3}, (err, res) => {
-        res.Results.forEach(r => {
-          console.log(`Workshop ID: ${r.WorkshopId}`)
-        })
         assert.isNull(err)
         assert.isTrue(res.IsSuccess, res.DisplayMessage)
         assert.isArray(res.Results)
@@ -64,11 +61,6 @@ describe('Workshops', function() {
       const workshopId = 53
       const userId = -1
       api.cancelWorkshopBooking(workshopId, studentId, userId, (err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
         assert.isNull(err)
         assert.isTrue(res.IsSuccess, res.DisplayMessage)
         done()
@@ -85,11 +77,6 @@ describe('Workshops', function() {
         attended: 1
       }
       api.updateWorkshopBooking(params, (err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
         assert.isNull(err)
         assert.isTrue(res.IsSuccess, res.DisplayMessage)
         done()
@@ -100,11 +87,6 @@ describe('Workshops', function() {
   describe('#searchWorkshopBookings()', () => {
     it('should return a list of workshop bookings that match the search parameter', done => {
       api.searchWorkshopBookings({studentId: '11692946'}, (err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
         assert.isNull(err)
         assert.isTrue(res.IsSuccess, res.DisplayMessage)
         assert.isArray(res.Results)

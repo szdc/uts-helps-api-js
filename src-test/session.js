@@ -10,11 +10,6 @@ describe('Sessions', function() {
   describe('#getSessionTypes()', () => {
     it('should return a list of active sessions', done => {
       api.getSessionTypes((err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
         assert.isNull(err)
         assert.isTrue(res.IsSuccess)
         assert.isArray(res.Results)
@@ -29,11 +24,6 @@ describe('Sessions', function() {
         studentId: '11692946'
       }
       api.searchSessionBookings(params, (err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
         assert.isNull(err)
         assert.isTrue(res.IsSuccess)
         assert.isArray(res.Results)
@@ -51,11 +41,6 @@ describe('Sessions', function() {
         attended: 1
       }
       api.updateSessionBooking(params, (err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
         assert.isNull(err)
         assert.isTrue(res.IsSuccess, res.DisplayMessage)
         done()
