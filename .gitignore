@@ -37,9 +37,12 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Babel directories
-dist
+# Source directories
+hooks
+src
+src-test
 test
+.*
 
 # WebStorm config
 .idea
