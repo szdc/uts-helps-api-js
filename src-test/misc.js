@@ -17,4 +17,15 @@ describe('Misc', function() {
       })
     })
   })
+
+  describe('#listLecturers()', () => {
+    it('should return a list of lecturers', done => {
+      api.getLecturers((err, res) => {
+        assert.isNull(err)
+        assert.isTrue(res.IsSuccess)
+        assert.isArray(res.Results)
+        done()
+      })
+    })
+  })
 })
