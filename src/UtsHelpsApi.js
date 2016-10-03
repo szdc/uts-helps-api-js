@@ -84,8 +84,8 @@ export default class UtsHelpsApi {
    * @private
    */
   _processResponse(callback, err, res) {
-    if (err || res.success === false) {
-      return this.onResponseReceived(err.response, res, callback)
+    if (err || !res.body.IsSuccess) {
+      return this.onResponseReceived(err || res.body, res, callback)
     }
     this.onResponseReceived(null, res.body, callback)
   }

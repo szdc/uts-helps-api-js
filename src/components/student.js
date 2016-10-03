@@ -51,7 +51,7 @@ export default {
         }
       })
       this.post(this.endpoints.student.register, {
-        form: details
+        form: newKeys
       }, callback)
     }
   }
