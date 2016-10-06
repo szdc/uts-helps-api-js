@@ -1,4 +1,9 @@
-export default {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
   endpoints: {
     workshop: {
       cancelBooking: '/workshop/booking/cancel',
@@ -17,13 +22,14 @@ export default {
      * @param active
      * @param callback
      */
-    getWorkshopSets(active, callback) {
+    getWorkshopSets: function getWorkshopSets(active, callback) {
       if (typeof active === 'function') {
-        callback = active
-        active = true
+        callback = active;
+        active = true;
       }
-      this.get(this.endpoints.workshop.getSets.replace('{active}', active), callback)
+      this.get(this.endpoints.workshop.getSets.replace('{active}', active), callback);
     },
+
 
     /**
      * Retrieves a list of workshop sets that meet the specified criteria.
@@ -31,15 +37,16 @@ export default {
      * @param params
      * @param callback
      */
-    searchWorkshops(params, callback) {
+    searchWorkshops: function searchWorkshops(params, callback) {
       if (typeof params === 'function') {
-        callback = params
-        params = {}
+        callback = params;
+        params = {};
       }
       this.get(this.endpoints.workshop.search, {
         query: params
-      }, callback)
+      }, callback);
     },
+
 
     /**
      * Creates a workshop booking.
@@ -49,15 +56,16 @@ export default {
      * @param userId
      * @param callback
      */
-    createWorkshopBooking(workshopId, studentId, userId, callback) {
+    createWorkshopBooking: function createWorkshopBooking(workshopId, studentId, userId, callback) {
       this.post(this.endpoints.workshop.createBooking, {
         query: {
-          workshopId,
-          studentId,
-          userId
+          workshopId: workshopId,
+          studentId: studentId,
+          userId: userId
         }
-      }, callback)
+      }, callback);
     },
+
 
     /**
      * Creates a workshop wait list entry.
@@ -67,15 +75,16 @@ export default {
      * @param userId
      * @param callback
      */
-    createWorkshopWaiting(workshopId, studentId, userId, callback) {
+    createWorkshopWaiting: function createWorkshopWaiting(workshopId, studentId, userId, callback) {
       this.post(this.endpoints.workshop.createWaiting, {
         query: {
-          workshopId,
-          studentId,
-          userId
+          workshopId: workshopId,
+          studentId: studentId,
+          userId: userId
         }
-      }, callback)
+      }, callback);
     },
+
 
     /**
      * Cancels a workshop booking.
@@ -85,15 +94,16 @@ export default {
      * @param userId
      * @param callback
      */
-    cancelWorkshopBooking(workshopId, studentId, userId, callback) {
+    cancelWorkshopBooking: function cancelWorkshopBooking(workshopId, studentId, userId, callback) {
       this.post(this.endpoints.workshop.cancelBooking, {
         query: {
-          workshopId,
-          studentId,
-          userId
+          workshopId: workshopId,
+          studentId: studentId,
+          userId: userId
         }
-      }, callback)
+      }, callback);
     },
+
 
     /**
      * Updates a workshop booking.
@@ -101,11 +111,12 @@ export default {
      * @param params
      * @param callback
      */
-    updateWorkshopBooking(params, callback) {
+    updateWorkshopBooking: function updateWorkshopBooking(params, callback) {
       this.put(this.endpoints.workshop.updateBooking, {
         form: params
-      }, callback)
+      }, callback);
     },
+
 
     /**
      * Retrieves a list of workshop bookings that meet the specified criteria.
@@ -113,14 +124,14 @@ export default {
      * @param params
      * @param callback
      */
-    searchWorkshopBookings(params, callback) {
+    searchWorkshopBookings: function searchWorkshopBookings(params, callback) {
       if (typeof params === 'function') {
-        callback = params
-        params = {}
+        callback = params;
+        params = {};
       }
       this.get(this.endpoints.workshop.searchBookings, {
         query: params
-      }, callback)
+      }, callback);
     }
   }
-}
+};

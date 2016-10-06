@@ -1,4 +1,9 @@
-export default {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
   endpoints: {
     student: {
       get: '/student/{id}',
@@ -6,12 +11,11 @@ export default {
     }
   },
   methods: {
-    getStudent(id, callback) {
-      this.get(this.endpoints.student.get.replace('{id}', id), callback)
+    getStudent: function getStudent(id, callback) {
+      this.get(this.endpoints.student.get.replace('{id}', id), callback);
     },
-
-    registerStudent(details, callback) {
-      const keyMap = {
+    registerStudent: function registerStudent(details, callback) {
+      var keyMap = {
         id: 'StudentId',
         dateOfBirth: 'DateOfBirth',
         gender: 'Gender',
@@ -40,19 +44,19 @@ export default {
         foundationCourse: 'FoundationCourse',
         foundationCourseMark: 'FoundationCourseMark',
         creatorId: 'CreatorId'
-      }
-      const newKeys = {}
-      Object.keys(details).forEach(key => {
-        const mappedKey = keyMap[key]
+      };
+      var newKeys = {};
+      Object.keys(details).forEach(function (key) {
+        var mappedKey = keyMap[key];
         if (keyMap[key]) {
-          newKeys[mappedKey] = details[key]
+          newKeys[mappedKey] = details[key];
         } else {
-          newKeys[key] = details[key]
+          newKeys[key] = details[key];
         }
-      })
+      });
       this.post(this.endpoints.student.register, {
         form: newKeys
-      }, callback)
+      }, callback);
     }
   }
-}
+};

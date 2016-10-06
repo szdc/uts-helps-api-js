@@ -1,4 +1,9 @@
-export default {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
   endpoints: {
     session: {
       getTypes: '/session/sessionTypes/{active}',
@@ -13,13 +18,14 @@ export default {
      * @param active
      * @param callback
      */
-    getSessionTypes(active, callback) {
+    getSessionTypes: function getSessionTypes(active, callback) {
       if (typeof active === 'function') {
-        callback = active
-        active = true
+        callback = active;
+        active = true;
       }
-      this.get(this.endpoints.session.getTypes.replace('{active}', active), callback)
+      this.get(this.endpoints.session.getTypes.replace('{active}', active), callback);
     },
+
 
     /**
      * Retrieves a list of session bookings that meet the specified criteria.
@@ -27,15 +33,16 @@ export default {
      * @param params
      * @param callback
      */
-    searchSessionBookings(params, callback) {
+    searchSessionBookings: function searchSessionBookings(params, callback) {
       if (typeof params === 'function') {
-        callback = params
-        params = {}
+        callback = params;
+        params = {};
       }
       this.get(this.endpoints.session.searchBookings, {
         query: params
-      }, callback)
+      }, callback);
     },
+
 
     /**
      * Updates a session booking.
@@ -43,10 +50,10 @@ export default {
      * @param params
      * @param callback
      */
-    updateSessionBooking(params, callback) {
+    updateSessionBooking: function updateSessionBooking(params, callback) {
       this.put(this.endpoints.session.updateBooking, {
         form: params
-      }, callback)
+      }, callback);
     }
   }
-}
+};
