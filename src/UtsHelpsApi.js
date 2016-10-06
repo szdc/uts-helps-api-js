@@ -69,6 +69,7 @@ export default class UtsHelpsApi {
    */
   getRequestHeaders() {
     return {
+      Accept: 'application/json',
       AppKey: this.options.apiKey,
       'Content-Type': 'application/json'
     }
@@ -139,7 +140,10 @@ export default class UtsHelpsApi {
   _makeRequest(uri, data, callback) {
     let request =
       superagent(data.method, this._buildEndpoint(uri))
-        .set(data.headers || this.getRequestHeaders(data))
+        .set({
+          ...this.getRequestHeaders(data),
+          ...data.headers
+        })
     if (data.query) {
       request.query(data.query)
     }
