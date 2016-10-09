@@ -88,6 +88,9 @@ export default class UtsHelpsApi {
     if (err || res.success === false) {
       return this.onResponseReceived(err.response, res, callback)
     }
+    if (!res.body.IsSuccess) {
+      return this.onResponseReceived(res.body.DisplayMessage, res, callback)
+    }
     this.onResponseReceived(null, res.body, callback)
   }
 
